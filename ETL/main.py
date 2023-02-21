@@ -17,4 +17,5 @@ if __name__ == '__main__':
     conn = sqlite3.connect("database.sqlite")
     alerts.to_sql("alerts", conn, if_exists="replace", index=False)
     devices.to_sql("devices", conn, if_exists="replace", index=False)
+    print(pd.read_sql("count * from devices", conn))
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
