@@ -1,0 +1,119 @@
+[
+    {
+        "id": "web",
+        "ip": "172.18.0.0",
+        "localizacion": "None",
+        "responsable": {
+            "nombre": "admin",
+            "telefono": 656445552,
+            "rol": "Administracion de sistemas"
+        },
+        "analisis": {
+            "puertos_abiertos": ["80/TCP", "443/TCP", "3306/TCP", "40000/UDP"],
+            "servicios": 3,
+            "servicios_inseguros": 0,
+            "vulnerabilidades_detectadas": 15
+        }
+    },
+    {  
+        "id": "paco_pc",
+        "ip": "172.17.0.0",
+        "localizacion": "Barcelona",
+        "responsable": {
+            "nombre": "Paco Garcia",
+            "telefono": 640220120,
+            "rol": "Direccion"
+        },
+        "analisis": {
+            "puertos_abiertos": "None",
+            "servicios": 0,
+            "servicios_inseguros": 0,
+            "vulnerabilidades_detectadas": 4
+        }
+    },
+    {
+        "id": "luis_pc",
+        "ip": "172.19.0.0",
+        "localizacion": "Madrid",
+        "responsable": {
+            "nombre": "Luis Sanchez",
+            "telefono": "None",
+            "rol": "Desarrollador"
+        },
+        "analisis": {
+            "puertos_abiertos": [
+                "1194/UDP",
+                "8080/TCP",
+                "8080/UDP",
+                "40000/UDP"
+            ],
+            "servicios": 1,
+            "servicios_inseguros": 1,
+            "vulnerabilidades_detectadas": 52
+        }
+    },
+    {
+        "id": "router1",
+        "ip": "172.1.0.0",
+        "localizacion": "None",
+        "responsable": {
+            "nombre": "admin",
+            "telefono": 656445552,
+            "rol": "Administracion de sistemas"
+        },
+        "analisis": {
+            "puertos_abiertos": ["443/UDP", "80/TCP"],
+            "servicios": 1,
+            "servicios_inseguros": 0,
+            "vulnerabilidades_detectadas": 3
+        }
+    },
+    {
+        "id": "dhcp_server",
+        "ip": "172.1.0.1",
+        "localizacion": "Madrid",
+        "responsable": {
+            "nombre": "admiin",
+            "telefono": "None",
+            "rol": "None"
+        },
+        "analisis": {
+            "puertos_abiertos": ["80/TCP", "67/UDP", "68/UDP"],
+            "servicios": 2,
+            "servicios_inseguros": 2,
+            "vulnerabilidades_detectadas": 12
+        }
+    },
+    {
+        "id": "mysql_db",
+        "ip": "172.18.0.1",
+        "localizacion": "None",
+        "responsable": {
+            "nombre": "admin",
+            "telefono": 656445552,
+            "rol": "Administracion de sistemas"
+        },
+        "analisis": {
+            "puertos_abiertos": ["8080/TCP", "3306/TCP", "3306/UDP"],
+            "servicios": 2,
+            "servicios_inseguros": 0,
+            "vulnerabilidades_detectadas": 2
+        }
+    },
+    {
+        "id": "ELK",
+        "ip": "172.18.0.2",
+        "localizacion": "None",
+        "responsable": {
+            "nombre": "admin",
+            "telefono": 656445552,
+            "rol": "Administracion de sistemas"
+        },
+        "analisis": {
+            "puertos_abiertos": ["80/TCP", "443/TCP", "9200/TCP", "9300/TCP", "5601/TCP"],
+            "servicios": 3,
+            "servicios_inseguros": 2,
+            "vulnerabilidades_detectadas": 21
+        }
+    }
+]
