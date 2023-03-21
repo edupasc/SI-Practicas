@@ -62,10 +62,33 @@ def showInfo(conn):
     print("NÚMERO MÁXIMO DE VULNERABILIDADES DETECTADAS EN UN DISPOSITIVO: " + str(max))
     print("NÚMERO MÍNIMO DE VULNERABILIDADES DETECTADAS EN UN DISPOSITIVO: " + str(min))
 
+def infoPriority(conn):
+    alerts = pd.read_sql_query("SELECT * from alerts", conn)
+    analysis = pd.read_sql_query("SELECT * from analisis", conn)
+    devices = pd.read_sql_query("SELECT * from devices", conn)
+    c = conn.cursor()
+    alerts = alerts[['timestamp', 'prioridad', 'origen','destino']]
+    analysis = analysis[['vulnerabilidades_detectadas']]
+    df = pd.DataFrame()
+    priority = []
+    alertsByPriority = []
+
+    for j in range(1,4):
+        df['priority ' + str(j)] = None
+        alertsByPriority.append([])
+        priority.append(alerts[(alerts['prioridad'] == j)])
+        for i in devices:
+            alertsByPriority.append(priority[j][(priority[j]['origen'] == i['ip']) | (priority[j]['destino'] == i['ip'])])
+
+
+
+
+
 
 
 if __name__ == '__main__':
     conn = sqlite3.connect("database.sqlite")
     # storeFilesInDB(conn)
     showInfo(conn)
+    infoPriority(conn)
     conn.close()
