@@ -190,9 +190,10 @@ def graphs(conn):
     plt.ylabel('puertos abiertos')
     plt.show()
 
-
-   print("----------------------------------------------------------------------------------------")
-   print("Valores ausentes: " + str(missingValues))
+    """
+    print("----------------------------------------------------------------------------------------")
+    print("Valores ausentes: " + str(missingValues))
+    """
 
 if __name__ == '__main__':
     conn = sqlite3.connect("database.sqlite")
