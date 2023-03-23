@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import sqlite3
+import matplotlib.pyplot as plt
 import calendar
 
 def storeFilesInDB(conn):
@@ -89,6 +90,97 @@ def infoDate(conn):
        print("Min de vulnerabilidades_detectadas del mes " + str(j)+ ": " + str(vulnByPriority["vulnerabilidades_detectadas"].min()))
        print("Máx de vulnerabilidades_detectadas del mes " + str(j) + ": " + str(vulnByPriority["vulnerabilidades_detectadas"].max()))
 
+def graphs(conn):
+    curs=conn.cursor()
+
+    # 10 IPs más problemáticas
+    curs.execute("SELECT origen, COUNT(*) as num_alertas FROM alerts WHERE prioridad = 1 GROUP BY origen ORDER BY num_alertas DESC LIMIT 10")
+    ip = []
+    n= []
+    for rows in curs.fetchall():
+        ip.append(rows[0])
+        n.append(rows[1])
+    plt.bar(ip, n, color="gray")
+    plt.title('IPs problemáticas')
+    plt.xlabel('IP')
+    plt.xticks(rotation='vertical')
+    plt.ylabel('n alertas')
+    plt.subplots_adjust(bottom=0.29)
+    plt.show()
+
+    # Numero de alertas por día
+    curs.execute("SELECT strftime('%Y-%m-%d',timestamp), COUNT(*) FROM alerts GROUP BY strftime('%Y-%m-%d',timestamp)")
+    date = []
+    n = []
+    for rows in curs.fetchall():
+        date.append(rows[0])
+        n.append(rows[1])
+    plt.plot(date, n, color="gray")
+    plt.title('alertas por día')
+    plt.xlabel('fecha')
+    plt.ylabel('n alertas')
+    plt.xticks(rotation=25, ha='right', fontsize=6)
+    plt.xticks( range(0, 70, 4))
+    plt.subplots_adjust(bottom=0.15)
+    plt.show()
+
+    # numero de alertas por categoría
+    curs.execute("SELECT clasificacion, COUNT(*) as num_alertas FROM alerts GROUP BY clasificacion")
+    category = []
+    n = []
+    for rows in curs.fetchall():
+        category.append(rows[0])
+        n.append(rows[1])
+    plt.bar(category, n, color="gray")
+    plt.title('alertas por categorías')
+    plt.xlabel('categoría')
+    plt.ylabel('alertas')
+    plt.xticks(rotation=25, ha='right', fontsize=6)
+    plt.subplots_adjust(bottom=0.29, left=0.2)
+    plt.show()
+
+    #la 4 es la traviesa
+    """
+    # dispositivos más vulnerables
+    curs.execute("SELECT id, SUM(servicios_inseguros + vulnerabilidades_detectadas) FROM analisis GROUP BY id")
+    device = []
+    n = []
+    for rows in curs.fetchall():
+        device.append(rows[0])
+        n.append(rows[1])
+    plt.bar(device, ncolor="gray")
+    plt.title('dispositivos vulnerables')
+    plt.xlabel('dispositivos')
+    plt.ylabel('n vulnerabilidades')
+    plt.xticks(rotation='vertical')
+    plt.show()
+    """
+
+    # media de puertos abiertos frente a servicios inseguros
+    curs.execute("SELECT servicios_inseguros,AVG(no_puertos_abiertos) FROM analisis GROUP BY servicios_inseguros")
+    service = []
+    ports = []
+    for rows in curs.fetchall():
+        service.append(rows[0])
+        ports.append(rows[1])
+    plt.bar(service, ports, color="gray")
+    plt.title('relación puertos abiertos - servicios inseguros')
+    plt.xlabel('servicions inseguros')
+    plt.ylabel('puertos abiertos')
+    plt.show()
+
+    # media de puertos abiertos frente al total de servicios detectados
+    curs.execute("SELECT servicios,AVG(no_puertos_abiertos) FROM analisis GROUP BY servicios")
+    service = []
+    ports = []
+    for rows in curs.fetchall():
+        service.append(rows[0])
+        ports.append(rows[1])
+    plt.bar(service, ports, color="gray")
+    plt.title('relación puertos abiertos - servicios detectados')
+    plt.xlabel('servicios detectados')
+    plt.ylabel('puertos abiertos')
+    plt.show()
 
 if __name__ == '__main__':
     conn = sqlite3.connect("database.sqlite")
@@ -96,4 +188,5 @@ if __name__ == '__main__':
     showInfo(conn)
     infoPriority(conn)
     infoDate(conn)
+    graphs(conn)
     conn.close()
