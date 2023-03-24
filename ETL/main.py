@@ -148,21 +148,20 @@ def graphs(conn):
     plt.show()
 
     #la 4 es la traviesa
-    """
     # dispositivos más vulnerables
-    curs.execute("SELECT id, SUM(servicios_inseguros + vulnerabilidades_detectadas) FROM analisis GROUP BY id")
+    curs.execute("SELECT ip, SUM(servicios_inseguros + vulnerabilidades_detectadas) FROM analisis GROUP BY ip")
     device = []
     n = []
     for rows in curs.fetchall():
         device.append(rows[0])
-        n.append(rows[1])
-    plt.bar(device, ncolor="gray")
+        n.append(rows[1]/10)
+    plt.bar(device, n, color="gray")
     plt.title('dispositivos vulnerables')
     plt.xlabel('dispositivos')
     plt.ylabel('n vulnerabilidades')
+    plt.subplots_adjust(bottom=0.25)
     plt.xticks(rotation='vertical')
     plt.show()
-    """
 
     # media de puertos abiertos frente a servicios inseguros
     curs.execute("SELECT servicios_inseguros,AVG(no_puertos_abiertos) FROM analisis GROUP BY servicios_inseguros")
@@ -197,7 +196,7 @@ def graphs(conn):
 
 if __name__ == '__main__':
     conn = sqlite3.connect("database.sqlite")
-    #storeFilesInDB(conn)
+    storeFilesInDB(conn)
     showInfo(conn)
     infoPriority(conn)
     infoDate(conn)
