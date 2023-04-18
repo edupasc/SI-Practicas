@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a639b9cc-7d51-40b5-88f3-936cdab154c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/templates/problematic_ips.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CRM/templates/top_devices.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +44,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
@@ -79,6 +81,7 @@
       <updated>1676996927899</updated>
       <workItem from="1676996940626" duration="6831000" />
       <workItem from="1677600869551" duration="3572000" />
+      <workItem from="1681832053185" duration="1773000" />
     </task>
     <servers />
   </component>

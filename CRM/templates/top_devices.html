@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top {{ number }} dispositivos más vulnerables</title>
+</head>
+<body>
+    <h1>Top {{ number }} dispositivos más vulnerables</h1>
+    <table>
+		<thead>
+			<tr>
+				<th>IP del dispositivo</th>
+				<th>Vulnerabilidades y servicios inseguros detectados</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for resultado in resultados %}
+			<tr>
+				<td>{{ resultado[0] }}</td>
+				<td>{{ resultado[1] }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>
