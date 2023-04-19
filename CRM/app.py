@@ -1,11 +1,13 @@
 from flask import *
 import sqlite3
+import requests
+
 
 app = Flask(__name__)
 
 
 def get_cursor():
-    conn = sqlite3.connect("../ETL/database.sqlite")
+    conn = sqlite3.connect("ETL/database.sqlite")
     return conn.cursor()
 
 @app.route('/')
@@ -32,7 +34,13 @@ def top_devices():
     resultados = curs.fetchall()
     return render_template("top_devices.html", resultados=resultados, number=number)
 
+@app.route("/last-vulns")
+def last_vulns():
+    response = requests.get('https://cve.circl.lu/api/last')
+    data = response.json()
+    vulns = data[:10]
+    return render_template('last_vulns.html', vulns=vulns)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
