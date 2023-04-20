@@ -5,8 +5,11 @@
     <title>Últimas 10 vulnerabilidades</title>
 </head>
 <body>
-<h1>Los primeros 10 objetos:</h1>
 
+<h1>Los primeros 10 objetos:</h1>
+    <style>table td {
+        padding: 10px;
+    }</style>
     <table>
 		<thead>
 			<tr>
@@ -21,10 +24,10 @@
 			{% for vuln in vulns %}
 			<tr>
 				<td>{{ vuln["id"] }}</td>
-				<td>{{ resultado["Modified"] }}</td>
-                <td>{{ resultado["Published"] }}</td>
-                <td>{{ resultado["references"] }}</td>
-                <td>{{ resultado["summary"] }}</td>
+				<td>{{ vuln["Modified"] }}</td>
+                <td>{{ vuln["Published"] }}</td>
+                <td><a href="{{ vuln["references"][0]}}">referencia</a></td>
+                <td>{{ vuln["summary"] }}</td>
 			</tr>
 			{% endfor %}
 		</tbody>
