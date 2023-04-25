@@ -1,13 +1,19 @@
 from flask import *
 import sqlite3
 import requests
+from flask_login import LoginManager, current_user, login_user
+from models import User, users
+from forms import LoginForm
+from werkzeug.urls import url_parse
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '38463fec0601eac83c5530f838ba8b1a0ccf3d67'
+login_manager = LoginManager(app)
 
 
 def get_cursor():
-    conn = sqlite3.connect("ETL/database.sqlite")
+    conn = sqlite3.connect("../ETL/database.sqlite")
     return conn.cursor()
 
 @app.route('/')
@@ -40,6 +46,22 @@ def last_vulns():
     data = response.json()
     vulns = data[:10]
     return render_template('last_vulns.html', vulns=vulns)
+
+@app.route("/login")
+def login():
+    if current_user.is_authenticated:
+        return redirect("/")
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.get_user(form.email.data)
+        if user is not None and user.check_password(form.password.data):
+            login_user(user, remember=form.remember_me.data)
+            next_page = request.args.get("next")
+            if not next_page or url_parse(next_page).netloc != '':
+                next_page = "/"
+            return redirect(next_page)
+    return render_template("login.html", form=form)
+
 
 
 if __name__ == '__main__':
