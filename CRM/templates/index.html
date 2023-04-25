@@ -19,9 +19,26 @@
       <input type="submit" value="Submit">
     </form>
 
+    <h1>Top dispositivos más peligrosos</h1>
+    <form method="get" action="/dangerous-devices">
+        <div>
+            <label for="number">Número de dispositivos a consultar:</label>
+            <input type="number" name="number" id="number" required>
+        </div>
+        <div>
+            <input type="checkbox" id="infoPeligroso" name="infoPeligroso"/>
+            <label for="infoPeligroso">Info sobre dispositivos más peligrosos</label>
+
+        </div>
+        <div>
+            <input type="checkbox" id="infoPocoVulnerable" name="infoPocoVulnerable"/>
+            <label for="infoPocoVulnerable">Info sobre dispositivos menos vulnerables</label>
+
+        </div>
+            <input type="submit" value="Submit">
+    </form>
+
     <h1>Últimas 10 vulnerabilidades a tiempo real</h1>
     <button onclick="location.href='/last-vulns'">Últimas vulnerabilidades</button>
   </body>
-</html>
-</body>
 </html>

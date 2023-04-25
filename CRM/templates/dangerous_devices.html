@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top {{ number }} dispositivos más peligrosos</title>
+</head>
+<body>
+    <div id="dispositivoPeligroso">
+        <h1>Top {{ number }} dispositivos más peligrosos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre de los dispositivos:</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resultado in resultados %}
+                <tr>
+                    <td>{{ resultado[0] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="infoDispositivoPeligroso" style="display:block;">
+        <h2>Información sobre los dispositivos más peligrosos:</h2>
+            <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>IP</th>
+                    <th>Localización</th>
+                    <th>Responsable</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resultadoP in resultadosP %}
+                <tr>
+                    <td>{{ resultadoP[0] }}</td>
+                    <td>{{ resultadoP[1] }}</td>
+                    <td>{{ resultadoP[2] }}</td>
+                    <td>{{ resultadoP[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+    </div>
+
+    <div id="infoDispositivoPocoVulnerable" style="display:block;">
+        <h2>Información sobre los dispositivos menos vulerables:</h2>
+            <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>IP</th>
+                    <th>Localización</th>
+                    <th>Responsable</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resultadoN in resultadosN %}
+                <tr>
+                    <td>{{ resultadoN[0] }}</td>
+                    <td>{{ resultadoN[1] }}</td>
+                    <td>{{ resultadoN[2] }}</td>
+                    <td>{{ resultadoN[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+    </div>
+
+    <script>
+        var valueP="{{ infoPeligroso }}";
+        infoPeligroso = valueP !== "False";
+        var valueN="{{ infoPocoVulnerable }}";
+        infoPocoVulnerable = valueN !== "False";
+        if (!infoPeligroso) {
+            document.getElementById("infoDispositivoPeligroso").style.display = "none";
+        }
+        if (!infoPocoVulnerable) {
+            document.getElementById("infoDispositivoPocoVulnerable").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

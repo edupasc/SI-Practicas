@@ -41,6 +41,33 @@ def last_vulns():
     vulns = data[:10]
     return render_template('last_vulns.html', vulns=vulns)
 
+@app.route("/dangerous-devices")
+def dangerous_devices():
+    number = request.args.get("number")
+    if int(number) <= 0:
+        return render_template("error.html", reason="como no pongas una entrada válida me voy a convertir en la peor de tus pesadillas <3")
+    Peligroso = request.args.get("infoPeligroso")
+    PocoVulnerable = request.args.get("infoPocoVulnerable")
+    if Peligroso:
+        infoPeligroso="True"
+    else:
+        infoPeligroso="False"
+    if PocoVulnerable:
+        infoPocoVulnerable="True"
+    else:
+        infoPocoVulnerable="False"
+    curs=get_cursor()
+    curs.execute("SELECT DISTINCT d.id FROM devices d JOIN analisis a ON d.ip = a.ip WHERE a.servicios_inseguros / a.servicios > 0.33 LIMIT ?",(number,))
+    resultados = curs.fetchall()
+    cursP = get_cursor()
+    cursP.execute("SELECT DISTINCT d.id, d.ip, d.localizacion, d.responsable_id FROM devices d JOIN analisis a ON d.ip = a.ip WHERE a.servicios_inseguros / a.servicios > 0.33 LIMIT ?",(number,))
+    resultadosP = cursP.fetchall()
+    cursN = get_cursor()
+    cursN.execute("SELECT DISTINCT d.id, d.ip, d.localizacion, d.responsable_id FROM devices d JOIN analisis a ON d.ip = a.ip WHERE a.servicios_inseguros / a.servicios < 0.33")
+    resultadosN = cursN.fetchall()
+
+    return render_template("dangerous_devices.html", number=number, infoPocoVulnerable=infoPocoVulnerable, infoPeligroso=infoPeligroso, resultados=resultados, resultadosP=resultadosP, resultadosN=resultadosN)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
