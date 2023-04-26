@@ -4,6 +4,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class User(UserMixin):
+    # almacenamiento temporal de prueba, luego lo sustituiré por una bbdd
+    users = []
+
     def __init__(self, id, name, email, password, is_admin=False):
         self.id = id
         self.name = name
@@ -20,15 +23,9 @@ class User(UserMixin):
     def __repr__(self):
         return '<User {}>'.format(self.email)
 
-    # almacenamiento temporal de prueba, luego lo sustituiré por una bbdd
-    users = []
-
-    def get_user(email):
-        for user in users:
+    @classmethod
+    def get_user(cls, email):
+        for user in cls.users:
             if user.email == email:
                 return user
         return None
-
-
-def users():
-    return users
