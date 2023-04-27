@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a639b9cc-7d51-40b5-88f3-936cdab154c2" name="Default Changelist" comment="" />
+    <list default="true" id="a639b9cc-7d51-40b5-88f3-936cdab154c2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../CRM/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CRM/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRM/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CRM/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/database.sqlite" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,6 +83,7 @@
       <workItem from="1681832053185" duration="1773000" />
       <workItem from="1682436700540" duration="721000" />
       <workItem from="1682508133564" duration="27000" />
+      <workItem from="1682591629782" duration="1734000" />
     </task>
     <servers />
   </component>

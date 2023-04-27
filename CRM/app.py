@@ -5,22 +5,27 @@ from flask_login import LoginManager, current_user, login_user, logout_user, log
 from models import User
 from forms import *
 from werkzeug.urls import url_parse
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '38463fec0601eac83c5530f838ba8b1a0ccf3d67'
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
+db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../ETL/database.sqlite'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
 
 @login_manager.user_loader
-def load_user(email):
-    return User.get_user(email)
+def load_user(user_id):
+    return User.get_user(int(user_id))
 
 
-def get_cursor():
-    conn = sqlite3.connect("../ETL/database.sqlite")
-    return conn.cursor()
+
+
+conn = sqlite3.connect("../ETL/database.sqlite", check_same_thread=False)
 
 @app.route('/')
 @login_required
@@ -33,7 +38,7 @@ def problematic_ips():
     number = request.args.get("number")
     if int(number) <= 0:
         return render_template("error.html", reason="el número de IPs a consultar no puede ser menor que cero.")
-    curs = get_cursor()
+    curs = conn.cursor()
     curs.execute("SELECT origen, COUNT(*) as num_alertas FROM alerts WHERE prioridad = 1 GROUP BY origen ORDER BY num_alertas DESC LIMIT ?", (number,))
     resultados = curs.fetchall()
     return render_template('problematic_ips.html', resultados=resultados, number=number)
@@ -44,7 +49,7 @@ def top_devices():
     number = request.args.get("number")
     if int(number) <= 0:
         return render_template("error.html", reason="el número de dispositivos a consultar no puede ser menor que cero.")
-    curs = get_cursor()
+    curs = conn.cursor()
     curs.execute("SELECT ip, SUM(servicios_inseguros + vulnerabilidades_detectadas) as insecurities FROM analisis GROUP BY ip ORDER BY insecurities DESC LIMIT ?", (number,))
     resultados = curs.fetchall()
     return render_template("top_devices.html", resultados=resultados, number=number)
@@ -68,7 +73,7 @@ def login():
             login_user(user, remember=form.remember_me.data)
             next_page = request.args.get("next")
             if not next_page or url_parse(next_page).netloc != '':
-                next_page = "/"
+                    next_page = "/"
             return redirect(next_page)
     return render_template("login.html", form=form)
 
@@ -82,7 +87,8 @@ def signUpForm():
         email = form.email.data
         password = form.password.data
         user = User(len(User.users)+1, name, email, password)
-        User.users.append(user)
+        conn.cursor().execute("INSERT INTO users VALUES (?, ?, ?, ?, ?)", (user.id, user.name, user.email, user.password, user.is_admin))
+        conn.commit()
         login_user(user, True)
         next_page = request.args.get("next", None)
         if not next_page or url_parse(next_page).netloc != "":

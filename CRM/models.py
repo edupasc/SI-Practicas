@@ -1,18 +1,20 @@
+import sqlite3
+
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from app import db
 
 
 
-class User(UserMixin):
-    # almacenamiento temporal de prueba, luego lo sustituiré por una bbdd
-    users = []
+class User(db.Model, UserMixin):
 
-    def __init__(self, id, name, email, password, is_admin=False):
-        self.id = id
-        self.name = name
-        self.email = email
-        self.password = generate_password_hash(password)
-        self.is_admin = is_admin
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(256), unique=True, nullable=False)
+    password = db.Column(db.String(128), nullable=False)
+    is_admin = db.Column(db.Boolean, default=False)
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -23,9 +25,18 @@ class User(UserMixin):
     def __repr__(self):
         return '<User {}>'.format(self.email)
 
-    @classmethod
-    def get_user(cls, email):
-        for user in cls.users:
-            if user.email == email:
-                return user
-        return None
+    def save(self):
+        if not self.id:
+            db.session.add(self)
+        db.session.commit()
+
+    @staticmethod
+    def get_by_id(id):
+        return User.query.get(id)
+
+    @staticmethod
+    def get_by_email(email):
+        return User.query.filter_by(email=email).first()
+
+
+
