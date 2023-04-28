@@ -2,3 +2,7 @@ ETL/.idea/*
 *.xml
 ETL/.idea/workspace.xml
 ETL/.idea/workspace.xml
+CRM/__pycache__/forms.cpython-38.pyc
+CRM/__pycache__/app.cpython-38.pyc
+CRM/__pycache__/models.cpython-38.pyc
+CRM/__pycache__/app.cpython-38.pyc

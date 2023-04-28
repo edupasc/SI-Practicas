@@ -20,11 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a639b9cc-7d51-40b5-88f3-936cdab154c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../CRM/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CRM/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CRM/templates/problematic_ips.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CRM/templates/top_devices.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRM/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CRM/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRM/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../CRM/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/database.sqlite" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +81,9 @@
       <workItem from="1676996940626" duration="6831000" />
       <workItem from="1677600869551" duration="3572000" />
       <workItem from="1681832053185" duration="1773000" />
+      <workItem from="1682436700540" duration="721000" />
+      <workItem from="1682508133564" duration="27000" />
+      <workItem from="1682591629782" duration="1734000" />
     </task>
     <servers />
   </component>
@@ -109,26 +111,26 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="164" key="FileChooserDialogImpl/0.0.1536.816/-1920.-469.1920.1032@0.0.1536.816" timestamp="1677063791747" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1677604296214">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1682440622804">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/-1920.-469.1920.1032@0.0.1536.816" timestamp="1677064908517" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1677604296214" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1677604296214">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1682440622804" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1682440622804">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816/-1920.-469.1920.1032@0.0.1536.816" timestamp="1677064908517" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1677604296214" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1677604296214">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1682440622804" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1682440622804">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816/-1920.-469.1920.1032@0.0.1536.816" timestamp="1677064908517" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1677604296214" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1677604296214">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1682440622804" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1682440622804">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816/-1920.-469.1920.1032@0.0.1536.816" timestamp="1677064908517" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1677604296214" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1682440622804" />
     <state width="1493" height="258" key="GridCell.Tab.1.bottom" timestamp="1677603835903">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -153,8 +155,12 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="277" y="53" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1676997395238" />
+    <state x="586" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1682436783676">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="586" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.816@0.0.1536.816" timestamp="1682436783676" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ETL$main.coverage" NAME="main Coverage Results" MODIFIED="1677604296199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ETL$main.coverage" NAME="main Coverage Results" MODIFIED="1682436813014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
