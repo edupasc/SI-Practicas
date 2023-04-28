@@ -1,8 +1,9 @@
+import os
+
 from flask import *
 import sqlite3
 import requests
 from flask_login import LoginManager, current_user, login_user, logout_user, login_required
-from models import User
 from forms import *
 from werkzeug.urls import url_parse
 from flask_sqlalchemy import SQLAlchemy
@@ -12,15 +13,18 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '38463fec0601eac83c5530f838ba8b1a0ccf3d67'
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
-db = SQLAlchemy(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../ETL/database.sqlite'
+db_dir = "..\\ETL\\database.sqlite"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.abspath(db_dir)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+from models import User
+
 
 
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.get_user(int(user_id))
+    return User.get_by_id(user_id)
 
 
 
@@ -68,7 +72,7 @@ def login():
         return redirect("/")
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.get_user(form.email.data)
+        user = User.get_by_email(form.email.data)
         if user is not None and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             next_page = request.args.get("next")
@@ -82,19 +86,24 @@ def signUpForm():
     if current_user.is_authenticated:
         return redirect("/")
     form = SignupForm()
+    error = None
     if form.validate_on_submit():
         name = form.name.data
         email = form.email.data
         password = form.password.data
-        user = User(len(User.users)+1, name, email, password)
-        conn.cursor().execute("INSERT INTO users VALUES (?, ?, ?, ?, ?)", (user.id, user.name, user.email, user.password, user.is_admin))
-        conn.commit()
-        login_user(user, True)
-        next_page = request.args.get("next", None)
-        if not next_page or url_parse(next_page).netloc != "":
-            next_page = "/"
-        return redirect(next_page)
-    return render_template("sign_up.html", form=form)
+        user = User.get_by_email(email)
+        if user is not None:
+            error = f'El email {email} ya ha sido utilizado por otro usuario'
+        else:
+            user = User(name=name, email=email)
+            user.set_password(password)
+            user.save()
+            login_user(user, True)
+            next_page = request.args.get("next", None)
+            if not next_page or url_parse(next_page).netloc != "":
+                next_page = "/"
+            return redirect(next_page)
+    return render_template("sign_up.html", form=form, error=error)
 
 @app.route("/logout")
 @login_required
