@@ -1,0 +1,182 @@
+[
+    {
+        "id": "proxy1",
+        "servicios": 3,
+        "servicios_inseguros": 1,
+        "peligroso": 0
+    },
+    {
+        "id": "webserver1",
+        "servicios": 5,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "pc_luis",
+        "servicios": 2,
+        "servicios_inseguros": 1,
+        "peligroso": 1
+    },
+    {
+        "id": "pc_juan",
+        "servicios": 1,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "proxy2",
+        "servicios": 4,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "webserver2",
+        "servicios": 6,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "pc_jose",
+        "servicios": 3,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "server1",
+        "servicios": 2,
+        "servicios_inseguros": 1,
+        "peligroso": 1
+    },
+    {
+        "id": "proxy3",
+        "servicios": 4,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "pc_pepe",
+        "servicios": 1,
+        "servicios_inseguros": 1,
+        "peligroso": 1
+    },
+    {
+        "id": "webserver5",
+        "servicios": 9,
+        "servicios_inseguros": 3,
+        "peligroso": 1
+    },
+    {
+        "id": "pc_ana",
+        "servicios": 6,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "proxy7",
+        "servicios": 4,
+        "servicios_inseguros": 1,
+        "peligroso": 0
+    },
+    {
+        "id": "pc_jose",
+        "servicios": 3,
+        "servicios_inseguros": 1,
+        "peligroso": 0
+    },
+    {
+        "id": "webserver6",
+        "servicios": 7,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "router2",
+        "servicios": 4,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "pc_sofia",
+        "servicios": 5,
+        "servicios_inseguros": 1,
+        "peligroso": 0
+    },
+    {
+        "id": "proxy8",
+        "servicios": 3,
+        "servicios_inseguros": 1,
+        "peligroso": 0
+    },
+    {
+        "id": "pc_marta",
+        "servicios": 6,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "webserver7",
+        "servicios": 8,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "webserver8",
+        "servicios": 12,
+        "servicios_inseguros": 4,
+        "peligroso": 1
+    },
+    {
+        "id": "pc_daniel",
+        "servicios": 7,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "proxy9",
+        "servicios": 3,
+        "servicios_inseguros": 1,
+        "peligroso": 0
+    },
+    {
+        "id": "pc_lucas",
+        "servicios": 4,
+        "servicios_inseguros": 1,
+        "peligroso": 0
+    },
+    {
+        "id": "webserver9",
+        "servicios": 9,
+        "servicios_inseguros": 3,
+        "peligroso": 1
+    },
+    {
+        "id": "router3",
+        "servicios": 5,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "pc_natalia",
+        "servicios": 6,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "proxy10",
+        "servicios": 2,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "pc_pablo",
+        "servicios": 5,
+        "servicios_inseguros": 1,
+        "peligroso": 0
+    },
+    {
+        "id": "webserver10",
+        "servicios": 10,
+        "servicios_inseguros": 3,
+        "peligroso": 1
+    }
+]

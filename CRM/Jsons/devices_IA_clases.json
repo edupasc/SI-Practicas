@@ -1,0 +1,212 @@
+[
+    {
+        "id": "web",
+        "servicios": 3,
+        "servicios_inseguros": 0,
+        "peligroso": 1
+    },
+    {
+        "id": "paco_pc",
+        "servicios": 0,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "luis_pc",
+        "servicios": 1,
+        "servicios_inseguros": 1,
+        "peligroso": 1
+    },
+    {
+        "id": "router1",
+        "servicios": 1,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "dhcp_server",
+        "servicios": 2,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "mysql_db",
+        "servicios": 2,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "ELK",
+        "servicios": 3,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "rocio_pc",
+        "servicios": 5,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "mongo_db",
+        "servicios": 2,
+        "servicios_inseguros": 1,
+        "peligroso": 1
+    },
+    {
+        "id": "mongo_db_replica",
+        "servicios": 1,
+        "servicios_inseguros": 1,
+        "peligroso": 1
+    },
+    {
+        "id": "direccion_cuentas",
+        "servicios": 4,
+        "servicios_inseguros": 1,
+        "peligroso": 0
+    },
+    {
+        "id": "jesus_pc",
+        "servicios": 12,
+        "servicios_inseguros": 4,
+        "peligroso": 1
+    },
+    {
+        "id": "web_cmi",
+        "servicios": 13,
+        "servicios_inseguros": 2,
+        "peligroso": 0
+    },
+    {
+        "id": "nginx_proxy_web",
+        "servicios": 14,
+        "servicios_inseguros": 6,
+        "peligroso": 1
+    },
+    {
+        "id": "haproxy_web_cmi",
+        "servicios": 2,
+        "servicios_inseguros": 1,
+        "peligroso": 1
+    },
+    {
+        "id": "directivo_personal",
+        "servicios": 18,
+        "servicios_inseguros": 4,
+        "peligroso": 0
+    },
+    {
+        "id": "legal_data",
+        "servicios": 20,
+        "servicios_inseguros": 17,
+        "peligroso": 1
+    },
+    {
+        "id": "email_server",
+        "servicios": 5,
+        "servicios_inseguros": 4,
+        "peligroso": 1
+    },
+    {
+        "id": "maria_pc",
+        "servicios": 11,
+        "servicios_inseguros": 5,
+        "peligroso": 1
+    },
+    {
+        "id": "oscar_pc",
+        "servicios": 15,
+        "servicios_inseguros": 9,
+        "peligroso": 1
+    },
+    {
+        "id": "michel_pc",
+        "servicios": 6,
+        "servicios_inseguros": 4,
+        "peligroso": 1
+    },
+    {
+        "id": "pablo_pc",
+        "servicios": 1,
+        "servicios_inseguros": 1,
+        "peligroso": 1
+    },
+    {
+        "id": "carlos_pc",
+        "servicios": 9,
+        "servicios_inseguros": 2,
+        "peligroso": 0
+    },
+    {
+        "id": "web_2",
+        "servicios": 15,
+        "servicios_inseguros": 5,
+        "peligroso": 1
+    },
+    {
+        "id": "roman_pc",
+        "servicios": 11,
+        "servicios_inseguros": 6,
+        "peligroso": 1
+    },
+    {
+        "id": "niko_pc",
+        "servicios": 2,
+        "servicios_inseguros": 2,
+        "peligroso": 1
+    },
+    {
+        "id": "k8_master",
+        "servicios": 12,
+        "servicios_inseguros": 8,
+        "peligroso": 1
+    },
+    {
+        "id": "docker_engine",
+        "servicios": 30,
+        "servicios_inseguros": 29,
+        "peligroso": 1
+    },
+    {
+        "id": "node_1",
+        "servicios": 18,
+        "servicios_inseguros": 16,
+        "peligroso": 1
+    },
+    {
+        "id": "node_2",
+        "servicios": 20,
+        "servicios_inseguros": 0,
+        "peligroso": 0
+    },
+    {
+        "id": "honeypot",
+        "servicios": 22,
+        "servicios_inseguros": 21,
+        "peligroso": 1
+    },
+    {
+        "id": "hr_pc_1",
+        "servicios": 25,
+        "servicios_inseguros": 11,
+        "peligroso": 1
+    },
+    {
+        "id": "hr_pc_2",
+        "servicios": 25,
+        "servicios_inseguros": 6,
+        "peligroso": 0
+    },
+    {
+        "id": "hr_pc_3",
+        "servicios": 30,
+        "servicios_inseguros": 8,
+        "peligroso": 0
+    },
+    {
+        "id": "hr_pc_4",
+        "servicios": 18,
+        "servicios_inseguros": 17,
+        "peligroso": 1
+    }
+]
