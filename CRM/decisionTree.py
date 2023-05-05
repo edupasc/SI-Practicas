@@ -44,3 +44,4 @@ graph = graphviz.Source(dot_data)
 graph.render('test.gv', view=True).replace('\\', '/')
 
 yPredict = clf.predict(xTest)
+print("Mean squared error: %.2f" % mean_squared_error(yTest, yPredict))
