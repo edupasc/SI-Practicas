@@ -81,17 +81,18 @@ def dangerous_devices():
         infoPocoVulnerable="True"
     else:
         infoPocoVulnerable="False"
-    curs=get_cursor()
+    curs=conn.cursor()
     curs.execute("SELECT DISTINCT d.id FROM devices d JOIN analisis a ON d.ip = a.ip WHERE a.servicios_inseguros / a.servicios > 0.33 LIMIT ?",(number,))
     resultados = curs.fetchall()
-    cursP = get_cursor()
+    cursP = conn.cursor()
     cursP.execute("SELECT DISTINCT d.id, d.ip, d.localizacion, d.responsable_id FROM devices d JOIN analisis a ON d.ip = a.ip WHERE a.servicios_inseguros / a.servicios > 0.33 LIMIT ?",(number,))
     resultadosP = cursP.fetchall()
-    cursN = get_cursor()
+    cursN = conn.cursor()
     cursN.execute("SELECT DISTINCT d.id, d.ip, d.localizacion, d.responsable_id FROM devices d JOIN analisis a ON d.ip = a.ip WHERE a.servicios_inseguros / a.servicios < 0.33")
     resultadosN = cursN.fetchall()
 
     return render_template("dangerous_devices.html", number=number, infoPocoVulnerable=infoPocoVulnerable, infoPeligroso=infoPeligroso, resultados=resultados, resultadosP=resultadosP, resultadosN=resultadosN)
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
