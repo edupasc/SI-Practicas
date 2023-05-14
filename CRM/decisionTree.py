@@ -37,7 +37,7 @@ clf.fit(xTrain,yTrain)
 
 dot_data = tree.export_graphviz(clf, out_file=None,
                       feature_names=['Porcentaje'],
-                      class_names=['peligroso','noPeligroso'],
+                      class_names=['noPeligroso','peligroso'],
                      filled=True, rounded=True,
                     special_characters=True)
 graph = graphviz.Source(dot_data)

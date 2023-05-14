@@ -42,7 +42,7 @@ for i in range(len(clf.estimators_)):
     export_graphviz(estimator,
                     out_file='tree.dot',
                     feature_names=['Porcentaje'],
-                    class_names=['peligroso','noPeligroso'],
+                    class_names=['noPeligroso','peligroso',],
                     rounded=True, proportion=False,
                     precision=2, filled=True)
     call(['dot', '-Tpng', 'tree.dot', '-o', 'tree'+str(i)+'.png', '-Gdpi=600'])
